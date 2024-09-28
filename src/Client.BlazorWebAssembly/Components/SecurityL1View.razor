@@ -1,0 +1,83 @@
+﻿<style>
+
+    .security-l1-details {
+        font-family: Consolas;
+        color : black;
+        height: 12mm;
+        background-color: white;
+    }
+
+    .security-l1-main {
+        display: flex;
+        flex-direction: row;
+        height: 24mm;
+    }
+
+    .security-l1-price {
+        font-weight: bold;
+        font-size: 20mm;
+    }
+
+    .security-l1-bottom {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .security-l1-bid {
+        height: 12mm;
+        width: 50%;
+        background-color: #F6FAFE;
+        margin: 1mm;
+    }
+
+    .security-l1-ask {
+        height: 12mm;
+        width: 50%;
+        background-color: #FDF6F4;
+        margin: 1mm;
+    }
+
+    .security-l1-grey {
+        color: #ACACAC;
+    }
+
+    .security-l1-blue{
+        color: #518ED0;
+    }
+
+    .security-l1-red{
+        color: #CC524A;
+    }
+</style>
+
+<div class="flex-column">
+    <div class="security-l1-details">
+        @ViewModel.SecurityName
+    </div>
+    <div class="flex-row">
+        <div class="security-l1-price">
+            @ViewModel.Price
+        </div>
+        <div class="security-l1-variations">
+            @ViewModel.Price
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="flex-row flex-space-between security-l1-bid security-l1-blue flex-align">
+            <div>
+                BID
+            </div>
+            @($"{_numberDescription((int)ViewModel.BidVolume)}x{ViewModel.Bid}")
+        </div>
+        <div class="flex-row flex-space-between security-l1-ask security-l1-red flex-align">
+            @($"{_numberDescription((int)ViewModel.AskVolume)}x{ViewModel.Ask}")
+            <div>
+                ASK
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter] required public SecurityL1ViewModel ViewModel { private get; set; }
+    private Func<int, string> _numberDescription => Helpers.SimpleIntDescriptionHelper.SimpleDescription;
+}

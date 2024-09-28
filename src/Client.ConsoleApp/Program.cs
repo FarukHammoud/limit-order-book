@@ -1,0 +1,3 @@
+﻿using ClientConsoleApp;
+
+ConsoleApplication.Run();

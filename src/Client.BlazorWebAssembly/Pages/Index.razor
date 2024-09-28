@@ -1,0 +1,21 @@
+﻿@page "/"
+@using Application;
+@using Client.BlazorWebAssembly.Components
+@using InfrastructureExchange;
+
+<PageTitle>Open OrderBook</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SecurityL1View ViewModel=ViewModel />
+
+@code{
+    SecurityL1ViewModel ViewModel = new(
+        security: new Security() {
+            Name = "GBP.USD",
+            Code = "GBP.USD"
+        },
+        exchange: new Exchange()); 
+}

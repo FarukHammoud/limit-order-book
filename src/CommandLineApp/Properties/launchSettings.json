@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Client.CommandLineApp": {
+      "commandName": "Project",
+      "commandLineArgs": "input.txt",
+      "workingDirectory": "C:\\Users\\faruk\\Desktop\\lob_input"
+    }
+  }
+}
